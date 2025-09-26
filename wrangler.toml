@@ -2,14 +2,16 @@ name = "realtime-chat-widget"
 main = "src/index.ts"
 compatibility_date = "2023-10-30"
 
-# Pages binding for serving the frontend
-pages_build_output_dir = "public"
-
 # Durable Object binding for the conversation engine
 [durable_objects]
 bindings = [
   { name = "CONVERSATION_ENGINE", class_name = "ConversationEngine" }
 ]
+
+# Durable Object migrations
+[[migrations]]
+tag = "v1"
+new_classes = ["ConversationEngine"]
 
 # D1 Database binding for message history
 [[d1_databases]]
