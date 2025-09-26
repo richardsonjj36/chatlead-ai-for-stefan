@@ -1,0 +1,33 @@
+name = "realtime-chat-widget"
+main = "src/index.ts"
+compatibility_date = "2023-10-30"
+
+# Durable Object binding for the conversation engine
+[durable_objects]
+bindings = [
+  { name = "CONVERSATION_ENGINE", class_name = "ConversationEngine" }
+]
+
+# Durable Object migrations
+[[migrations]]
+tag = "v1"
+new_classes = ["ConversationEngine"]
+
+# D1 Database binding for message history
+[[d1_databases]]
+binding = "DB"
+database_name = "chat-messages"
+database_id = "<YOUR_D1_DATABASE_ID>" # You will get this after creating the DB
+
+# KV Namespace binding for chatbot configurations
+[[kv_namespaces]]
+binding = "CONFIG_KV"
+id = "<YOUR_KV_NAMESPACE_ID>" # You will get this after creating the KV namespace
+
+# Secrets for API keys and other environment variables
+[vars]
+# These are placeholders. We will set the actual secrets in the Cloudflare dashboard.
+OPENAI_API_KEY = "dummy"
+PINECONE_API_KEY = "dummy"
+PINECONE_BASE_URL = "dummy"
+BUBBLE_API_SECRET = "dummy"

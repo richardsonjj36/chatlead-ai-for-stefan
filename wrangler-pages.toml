@@ -1,8 +1,0 @@
-name = "chatlead-ai-for-stefan"
-compatibility_date = "2023-10-30"
-
-# Pages configuration - only for frontend deployment
-pages_build_output_dir = "public"
-
-# Note: This configuration is for Pages deployment only
-# For Worker deployment, use the main wrangler.toml file
