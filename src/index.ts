@@ -33,7 +33,8 @@ export default {
       }
       
       try {
-        const { widgetId, config } = await request.json();
+        const body = await request.json() as { widgetId: string; config: any };
+        const { widgetId, config } = body;
         if (!widgetId || !config) {
           return new Response('Missing widgetId or config', { status: 400 });
         }
